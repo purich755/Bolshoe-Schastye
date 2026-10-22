@@ -15,7 +15,7 @@ const errors = [];
 page.on('pageerror', (e) => errors.push(e.message));
 page.on('console', (m) => m.type() === 'error' && errors.push(m.text()));
 await page.addInitScript(() => { try { sessionStorage.setItem('bs-preload', '1'); } catch (e) {} });
-await page.goto('http://localhost:8577/', { waitUntil: 'load' });
+await page.goto(process.env.URL || 'http://localhost:8577/', { waitUntil: 'load' });
 await sleep(1500);
 let ok = 0, bad = 0;
 const t = (name, cond, extra = '') => { cond ? ok++ : bad++; console.log(cond ? '✓' : '✗', name, extra); };

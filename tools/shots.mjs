@@ -20,7 +20,7 @@ page.on('console', (m) => m.type() === 'error' && errors.push(m.text()));
 page.on('pageerror', (e) => errors.push('PAGEERROR ' + e.message));
 page.on('requestfailed', (r) => { if (!/yandex|mc\.|metrika/.test(r.url())) errors.push('REQFAIL ' + r.url()); });
 if (!args.includes('--pre')) await page.addInitScript(() => { try { sessionStorage.setItem('bs-preload', '1'); } catch (e) {} });
-await page.goto('http://localhost:8577/', { waitUntil: 'load' });
+await page.goto(process.env.URL || 'http://localhost:8577/', { waitUntil: 'load' });
 await sleep(args.includes('--pre') ? 700 : 4200);
 const go = (y) => page.evaluate((y) => { if (window.__lenis) window.__lenis.scrollTo(y, { immediate: true, force: true }); else scrollTo(0, y); }, y);
 const top = (s) => page.evaluate((s) => { const e = document.querySelector(s); return e ? e.getBoundingClientRect().top + scrollY : null; }, s);

@@ -17,6 +17,7 @@ GSAP 3.13 (ScrollTrigger, MotionPath, Draggable) и Lenis 1.3.11 подключ�
 ## Самопроверка
 
 - `node tools/shots.mjs 1440` — прокрутка всей страницы, снимки разделов в `raw/shots/`, ошибки консоли, горизонтальное переполнение, «застрявшие» скрытые блоки. Флаги `--reduced`, `--pre` (прелоадер), `--only top,draft`.
+- Любой из тестов можно запустить по живому адресу: `URL=https://purich755.github.io/Bolshoe-Schastye/ node tools/interact.mjs 375`.
 - `node tools/interact.mjs 1440` — интерактив реальными событиями: самопроверка → текст WhatsApp, вкладки, лайтбокс, колода, FAQ, меню, якоря, высота кнопок.
 - Проверено на 375 / 768 / 1440 / 1920 и с `prefers-reduced-motion`: ошибок нет, переполнения нет, 15–16 из 15–16 проверок.
 
